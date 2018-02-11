@@ -27,8 +27,7 @@ def medianfilter(src):
     
 
 source = Image.open(sys.argv[1])
-size1 = source.size[0]
-size2 = source.size[1]
+source = source.convert('L')
 target = medianfilter(source)
 target = np.asarray(target, dtype=np.uint8)
 Image.fromarray(target, 'L').save('median.png', 'PNG')
